@@ -61,6 +61,6 @@ Copyright 2009-2024 Allan Psicobyte, Alejandro Machuca (Parallex)
 
 sluger es una aplicación de la Oficina de Software Libre (http://osl.ugr.es/) de la Universidad de Granada (http://www.ugr.es/) que permite crear atajos con URLs cortas y redireccionar al usuario a través de ellas (smilar a servicios como tinyurl o ATAJA).
 
-Es software libre y se distribuye bajo una licencia Affero (AFFERO GENERAL PUBLIC LICENSE: http://www.affero.org/oagpl.html).
+Es software libre y se distribuye bajo una licencia Affero (AFFERO GENERAL PUBLIC LICENSE: https://www.gnu.org/licenses/agpl-3.0.en.html).
 
-This program is free software and it's licensed under the AFFERO GENERAL PUBLIC LICENSE (http://www.affero.org/oagpl.html).
+This program is free software and it's licensed under the (AFFERO GENERAL PUBLIC LICENSE https://www.gnu.org/licenses/agpl-3.0.en.html).
