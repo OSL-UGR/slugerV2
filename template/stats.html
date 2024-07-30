@@ -1,0 +1,37 @@
+<?php include $_SERVER["DOCUMENT_ROOT"]."/template/generate_qr.php"; ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+	<?php include "head.php"; getHead("Short URL")?>
+	<body>
+		<?php include "cabecera.php" ?>
+		<div class="content">
+			<div class="resumen">
+				<h1>Acortador de enlaces</h1>
+
+				<?php $page = 'https://' . $_SERVER['HTTP_HOST'] . '/' .$url ?>
+				<img class="qr_image" alt="Código qr generado" src='data:image/png;base64, <?php generateQRCodeFromUrlPNG($page) ?>'>
+							</br>
+
+							<a href='data:image/svg+xml;base64, <?php generateQRCodeFromUrlSVG($page) ?>' Download = 'qr_<?php echo $url ?>.svg'>
+								<button class="boton">Descargar qr (SVG)</button>
+							</a>
+							</br>
+
+							<a href='data:image/png;base64, <?php generateQRCodeFromUrlPNG($page) ?>' Download = 'qr_<?php echo $url ?>.png'>
+								<button class="boton">Descargar qr (PNG)</button>
+							</a>
+
+							<h2>ESTADISTICAS</h2>
+							<div class = "datos-estadisticas">
+								<p>Fecha de creación: <strong><?php echo $creada; ?></strong></p>
+								<p>Número de visitas totales: <?php echo $visitas; ?></p>
+							</div>
+			</div>
+			<?php echo $Tabla; ?>
+			<div class="navegastats">
+				<p><a href="/">Inicio</a> | <a href="/ayuda">Ayuda</a> | <a href="/licencia">Licencia</a></p>
+			</div>
+		</div>
+		<?php include "footer.php" ?>
+	</body>
+</html>

@@ -1,0 +1,15 @@
+DirectoryIndex index.php
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_METHOD} GET
+
+RewriteRule ^template/.*$ / [R]
+RewriteRule ^([^/=?\.]{4,})$ redir.php [L]
+RewriteRule ^stats/([^/]{4,})$ index.php?modo=stats&url=$1 [L]
+
+</IfModule>
+
