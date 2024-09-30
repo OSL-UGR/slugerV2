@@ -9,7 +9,7 @@
 				<div class="ugr-area">
 					<a href="https://www.ugr.es" title="Universidad de Granada">
 						<!--- CAMBIAR --->
-						<img src="logo-mono.svg" alt="Universidad de Granada">
+						<img src="logo-ugr-mono.svg" alt="Universidad de Granada">
 					</a>
 				</div>
 			</div>
