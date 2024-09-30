@@ -11,13 +11,13 @@ Originalmente, este proyecto se hospedaba en la forja de RedIris en https://forj
 
 La versión original se encuentra alojada en https://github.com/psicobyte/sluger
 
-##Requisitos:
+## Requisitos:
 
 Apache con mod_rewrite habilitado. PHP MySQL
 
 Usamos phpqrcode (Una librería de qrs con licencia LGPL) con la versión del código fuente alojada en https://sourceforge.net/projects/phpqrcode/files/latest/download (versión 1.1.4)
 
-##Instalación:
+## Instalación:
 
 Crear la Base de Datos "sluger".
 
@@ -31,7 +31,7 @@ Renombrar o copiar el archivo "modelo_htacces" a ".htacces".
 
 Editar, en la función Init() del archivo index.php, los datos de usuario y contraseña para la conexión a la BD.
 
-##BlackList y WhiteList
+## BlackList y WhiteList
 
 sluger permite usar dos archivos, blacklist.txt y whitelist.txt, como lista negra y lista blanca respectivamente.
 
@@ -55,7 +55,11 @@ Para que una IP sea aceptada, debe cumplir ambos criterios: NO aparecer en black
 
 Si no existen ni whitelist.txt ni blacklist.txt, todas las IPs serán aceptadas.
 
-##Licencia:
+## Agradecimientos: 
+
+Agradecemos a la Oficina Web y al CSIRC su ayuda para el desarrollo de esta aplicación.
+
+## Licencia:
 
 Copyright 2009-2024 Allan Psicobyte, Alejandro Machuca (Parallex)
 
