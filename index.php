@@ -110,8 +110,7 @@ function Init(){
 	$N= count($Caracteres);
 
 	// Editar aquí los datos de usuario Y contraseña para la Base de Datos.
-	$Conexion = mysqli_connect("database", "usuarioBaseDatos", "contraseñaBasoDatos", "nombreBaseDato");
-
+	$Conexion = mysqli_connect("database", "usuarioBaseDatos", "contraseñaBaseDatos", "nombreBaseDatos");
 }
 
 
@@ -522,6 +521,7 @@ function Estadistica($id){
 			$result=mysqli_query($Conexion, $sql);
 			while($row = mysqli_fetch_array($result)) {
 				$creada=$row["creada"];
+				$acortada=$row["url"];
 			}
 
 			$SQL_Error=  mysqli_error($Conexion);
@@ -545,6 +545,7 @@ function Estadistica($id){
 		$result=mysqli_query($Conexion, $sql);
 		while($row = mysqli_fetch_array($result)) {
 			$creada=$row["creada"];
+			$acortada=$row["url"];
 		}
 		mysqli_free_result($result);
 		if ($creada==''){
@@ -562,14 +563,11 @@ function Estadistica($id){
 
 		while($row = mysqli_fetch_array($result)) {
 			$Total++;
-			if ($row["refer"]!=''){
-				$lista[$row["refer"]]++;
-			}
 		}
 		mysqli_free_result($result);
+		$url = $id;
 
-		arsort($lista);
-		MuestraStats($Total,$lista,$creada,$id);
+		MuestraStats($Total,$creada,$acortada,$url);
 	}
 	else {
 		MuestraError($Error);
@@ -673,30 +671,14 @@ function MuestraJASON($id,$error,$texto){
 
 
 // Pantallas de Estadísticas
-function MuestraStats($visitas,$lista,$creada,$url){
-	global $Tabla;
-	$Tabla= '<table class="stats"><tr><th>URL</th><th>Visitas</th></tr>' ."\n";
-
-
-
-	foreach($lista as $key => $val) {
-
-		$muestra= preg_replace('"^(ftp|(http(s)?))://"', '', $key);
-
-		if (strlen($muestra)>55){
-			$muestra= substr($muestra,0,52).'...';
-		}
-		$Tabla.= '<tr><td><a href="'.$key.'">'.$muestra.'</a></td><td>'.$val.'</td></tr>' ."\n";
-	}
-	$Tabla.= '</table>'."\n";
-
+// 20250605 - cambio para nombres de archivo descargables
+function MuestraStats($visitas,$creada,$acortada,$url){
 	//Si no existe o no encuentra la plantilla, muestra una página por defecto
 	if (!@include("template/stats.html")){
 		echo '<html><head><title>Short URL</title></head><body><p>N&uacute;mero de visitas totales: '. $visitas .'</p>';
-		echo $Tabla;
+		echo '<p>URL acortada:'. $acortada .'</p>';
 		echo '</body></html>';
 		}
 
 }
-
 ?>

@@ -9,25 +9,27 @@
 				<h1>Acortador de enlaces</h1>
 
 				<?php $page = 'https://' . $_SERVER['HTTP_HOST'] . '/' .$url ?>
-				<img class="qr_image" alt="Código qr generado" src='data:image/png;base64, <?php generateQRCodeFromUrlPNG($page) ?>'>
-							</br>
+					<img class="qr_image" alt="Código qr generado" src='data:image/png;base64, <?php generateQRCodeFromUrlPNG($page) ?>' />
+				<br />
 
-							<a href='data:image/svg+xml;base64, <?php generateQRCodeFromUrlSVG($page) ?>' Download = 'qr_<?php echo $url ?>.svg'>
-								<button class="boton">Descargar qr (SVG)</button>
-							</a>
-							</br>
+				<!--<a href='data:image/svg+xml;base64, <?php generateQRCodeFromUrlSVG($page) ?>' download = 'qr_<?php echo $id ?>.svg'>-->
+				<a href='data:image/svg+xml;base64, <?php generateQRCodeFromUrlSVG($page) ?>' download = 'qr.svg'>
+					<button class="boton">Descargar QR (SVG)</button>
+				</a>
+				<br />
+				
+				<!--<a href='data:image/png;base64, <?php generateQRCodeFromUrlPNG($page) ?>' download = 'qr_<?php echo $id ?>.png'>-->
+				<a href='data:image/png;base64, <?php generateQRCodeFromUrlPNG($page) ?>' download = 'qr.png'>
+					<button class="boton">Descargar QR (PNG)</button>
+				</a>
 
-							<a href='data:image/png;base64, <?php generateQRCodeFromUrlPNG($page) ?>' Download = 'qr_<?php echo $url ?>.png'>
-								<button class="boton">Descargar qr (PNG)</button>
-							</a>
-
-							<h2>ESTADISTICAS</h2>
-							<div class = "datos-estadisticas">
-								<p>Fecha de creación: <strong><?php echo $creada; ?></strong></p>
-								<p>Número de visitas totales: <?php echo $visitas; ?></p>
-							</div>
+				<h2>ESTADISTICAS</h2>
+				<div class = "datos-estadisticas">
+					<p>Fecha de creación: <strong><?php echo $creada; ?></strong></p>
+					<p>Número de visitas totales: <?php echo $visitas; ?></p>
+					<p>Página acortada: <a href="<?php echo htmlspecialchars($acortada); ?>"><?php echo htmlspecialchars($acortada); ?></a></p>
+				</div>
 			</div>
-			<?php echo $Tabla; ?>
 			<div class="navegastats">
 				<p><a href="/">Inicio</a> | <a href="/ayuda">Ayuda</a> | <a href="/licencia">Licencia</a></p>
 			</div>
